@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { 
-  ArrowLeft, FolderOpen, Upload, Download, Search, Filter, FileText, Image, Video, File, 
-  Plus, CreditCard as Edit, Trash2, Eye, File as FileEdit, Wand2, BookOpen, Calendar, GraduationCap, X
+  ArrowLeft, FolderOpen, Upload, Download, Search, FileText, Image, Video, File, 
+  Plus, Edit, Trash2, Eye, Wand2, X
 } from 'lucide-react';
 
 interface ResourcesPageProps {
   teacherId: string;
   onBack: () => void;
 }
-
 
 interface Resource {
   id: string;
@@ -27,7 +26,6 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ teacherId, onBack }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedSubject, setSelectedSubject] = useState('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [showPaperGenerator, setShowPaperGenerator] = useState(false);
 
   // Mock resources data
   const [resources] = useState<Resource[]>([
@@ -158,13 +156,22 @@ const ResourcesPage: React.FC<ResourcesPageProps> = ({ teacherId, onBack }) => {
                 <p className="text-gray-600">Manage and organize your teaching materials</p>
               </div>
             </div>
-            <button 
-              onClick={() => setShowPaperGenerator(true)}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
-            >
-              <FileText className="w-4 h-4" />
-              Paper Generator
-            </button>
+            <div className="flex gap-3">
+              <button 
+                onClick={() => window.open('https://auto-slide-x.vercel.app/', '_blank')}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
+              >
+                <Wand2 className="w-4 h-4" />
+                AutoSlideX
+              </button>
+              <button 
+                onClick={() => window.open('https://paper-vista-five.vercel.app/', '_blank')}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4" />
+                PaperVista
+              </button>
+            </div>
           </div>
         </div>
 
