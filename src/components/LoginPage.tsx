@@ -178,7 +178,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 <div className="flex justify-between items-center">
                   <span className="text-blue-700">Password:</span>
                   <code className="bg-white px-2 py-1 rounded text-blue-800 font-mono select-all cursor-pointer"
-                        onClick={() => setPassword('password123')}>password123</code>
+                        onClick={() => setPassword('password123')}>svvv@123</code>
                 </div>
                 <p className="text-blue-600 text-xs mt-2">
                   Click on credentials to auto-fill
