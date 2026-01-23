@@ -2,12 +2,9 @@ import React from 'react';
 import { 
   BookOpen, 
   ClipboardCheck, 
-  BarChart3, 
-  Calendar, 
-  TrendingUp, 
-  FileText, 
-  Users, 
-  FolderOpen 
+  BookMarked,
+  FileText,
+  Monitor
 } from 'lucide-react';
 import type { Stats } from '../types';
 
@@ -18,15 +15,69 @@ interface QuickAccessPanelProps {
 
 const QuickAccessPanel: React.FC<QuickAccessPanelProps> = ({ stats, onNavigate }) => {
   const features = [
-    { to: "subjects", bg: "blue", icon: BookOpen, title: "My Subjects", desc: "Manage course content", count: stats.totalSubjects },
-    { to: "attendance", bg: "green", icon: ClipboardCheck, title: "Attendance", desc: "Mark & track attendance", count: "Today" },
-    { to: "grades", bg: "purple", icon: BarChart3, title: "Grades", desc: "Student evaluation", count: "New" },
-    { to: "schedule", bg: "amber", icon: Calendar, title: "Schedule", desc: "Class timetable", count: "Week" },
-    { to: "reports", bg: "indigo", icon: TrendingUp, title: "Reports", desc: "Analytics & insights", count: "Generate" },
-    { to: "assignments", bg: "red", icon: FileText, title: "Assignments", desc: "Create & manage", count: "5 Due" },
-    { to: "students", bg: "teal", icon: Users, title: "Students", desc: "Student profiles", count: stats.totalStudents },
-    { to: "resources", bg: "pink", icon: FolderOpen, title: "Resources", desc: "Teaching materials", count: "Library" },
+    { 
+      to: "subjects", 
+      bg: "blue", 
+      icon: BookOpen, 
+      title: "My Subjects", 
+      desc: "Manage course content", 
+      count: stats.totalSubjects,
+      isExternal: false
+    },
+    { 
+      to: "attendance", 
+      bg: "green", 
+      icon: ClipboardCheck, 
+      title: "Attendance", 
+      desc: "Mark & track attendance", 
+      count: "Today",
+      isExternal: false
+    },
+    { 
+      to: "https://project-alpha-roan.vercel.app/", 
+      bg: "orange", 
+      icon: BookMarked, 
+      title: "eCanteen", 
+      desc: "Canteen services", 
+      count: "Order",
+      isExternal: true
+    },
+    { 
+      to: "https://eliberary.vercel.app/", 
+      bg: "purple", 
+      icon: BookOpen, 
+      title: "eLibrary", 
+      desc: "Digital library access", 
+      count: "Browse",
+      isExternal: true
+    },
+    { 
+      to: "https://paper-vista-five.vercel.app/", 
+      bg: "indigo", 
+      icon: FileText, 
+      title: "PaperVista", 
+      desc: "Past papers & resources", 
+      count: "View",
+      isExternal: true
+    },
+    { 
+      to: "https://auto-slide-x.vercel.app/", 
+      bg: "red", 
+      icon: Monitor, 
+      title: "AutoSlideX", 
+      desc: "Presentation maker", 
+      count: "Create",
+      isExternal: true
+    },
   ];
+
+  const handleClick = (feature: typeof features[0]) => {
+    if (feature.isExternal) {
+      window.open(feature.to, '_blank', 'noopener,noreferrer');
+    } else {
+      onNavigate(feature.to);
+    }
+  };
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-5 border border-gray-100">
@@ -39,7 +90,7 @@ const QuickAccessPanel: React.FC<QuickAccessPanelProps> = ({ stats, onNavigate }
         {features.map((feature, index) => (
           <button
             key={index}
-            onClick={() => onNavigate(feature.to)}
+            onClick={() => handleClick(feature)}
             className="group bg-gray-50 hover:bg-white rounded-xl p-4 text-center transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-gray-200 hover:-translate-y-1 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent group-hover:via-blue-400 transition-all duration-300"></div>

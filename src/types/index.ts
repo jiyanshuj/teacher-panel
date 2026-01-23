@@ -20,6 +20,7 @@ export interface Subject {
 
 export interface TeacherSubject {
   id: number;
+  teacher_id: string;
   subject_id: string;
   section: string;
   semester: number;

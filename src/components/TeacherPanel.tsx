@@ -8,13 +8,9 @@ import AcademicCalendar from './AcademicCalendar';
 import RecentActivity from './RecentActivity';
 import SubjectsPage from './SubjectsPage';
 import AttendancePage from './AttendancePage';
-import GradesPage from './GradesPage';
-import SchedulePage from './SchedulePage';
-import ResourcesPage from './ResourcesPage';
-import ComingSoonPage from './ComingSoonPage';
-import { mockSupabase, mockTestConnection } from '../utils/mockData';
+import { mockTestConnection } from '../utils/mockData';
 import type { Teacher, TeacherSubject, Notice, Holiday, Activity, Stats } from '../types';
-import { TrendingUp, FileText, Users } from 'lucide-react';
+import { TrendingUp, FileText, Users, GraduationCap, ClipboardCheck, BookOpen } from 'lucide-react';
 
 interface TeacherPanelProps {
   teacherId?: string;
@@ -117,7 +113,7 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
     },
     {
       action: "Updated grades for Database Systems",
-      time: "5 hours ago", 
+      time: "5 hours ago",
       icon: "📊",
       color: "text-blue-600 bg-blue-50"
     },
@@ -155,10 +151,10 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
 
     try {
       console.log('Fetching teacher with ID:', teacherId);
-      
+
       // Import real Supabase client
       const { supabase } = await import('../lib/supabase');
-      
+
       // Fetch teacher basic info from teacher_db schema
       const { data: teacherData, error: teacherError } = await supabase
         .schema('teacher_db')
@@ -171,7 +167,7 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
         console.error("Teacher fetch error:", teacherError);
         throw new Error(`Failed to fetch teacher: ${teacherError.message}`);
       }
-      
+
       console.log('Teacher data fetched:', teacherData);
       setTeacher(teacherData);
 
@@ -189,7 +185,7 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
       } else if (teacherSubjectsData && teacherSubjectsData.length > 0) {
         // Fetch corresponding subject details for each teacher subject
         const subjectIds = teacherSubjectsData.map(ts => ts.subject_id);
-        
+
         const { data: subjectsDetailsData, error: subjectsError } = await supabase
           .schema('teacher_db')
           .from("subjects")
@@ -198,11 +194,17 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
 
         if (subjectsError) {
           console.error("Subjects details fetch error:", subjectsError);
-          setSubjects(teacherSubjectsData);
+          // Ensure teacher_id is included
+          const subjectsWithId = teacherSubjectsData.map(ts => ({
+            ...ts,
+            teacher_id: ts.teacher_id || teacherId
+          }));
+          setSubjects(subjectsWithId);
         } else {
           // Merge teacher subjects with subject details
-          const mergedData = teacherSubjectsData.map(ts => ({
+          const mergedData: TeacherSubject[] = teacherSubjectsData.map(ts => ({
             ...ts,
+            teacher_id: ts.teacher_id || teacherId,
             subjects: subjectsDetailsData?.find(s => s.subject_id === ts.subject_id)
           }));
           console.log('Merged subjects data:', mergedData);
@@ -282,7 +284,7 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
       </div>
     </div>
   );
-  
+
   // Error state
   if (error) return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
@@ -294,14 +296,14 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
           {getConnectionStatusText()}
         </div>
         <div className="flex gap-3 justify-center">
-          <button 
-            onClick={() => window.location.reload()} 
+          <button
+            onClick={() => window.location.reload()}
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Reload Page
           </button>
-          <button 
-            onClick={fetchTeacher} 
+          <button
+            onClick={fetchTeacher}
             className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
           >
             Retry
@@ -310,7 +312,7 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
       </div>
     </div>
   );
-  
+
   // No teacher found
   if (!teacher) return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
@@ -319,8 +321,8 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
         <h2 className="text-2xl font-bold text-gray-800 mb-2">Teacher Not Found</h2>
         <p className="text-gray-600 mb-2">No profile found for Teacher ID:</p>
         <p className="text-lg font-mono bg-gray-100 px-3 py-1 rounded text-blue-600 mb-4">{teacherId}</p>
-        <button 
-          onClick={fetchTeacher} 
+        <button
+          onClick={fetchTeacher}
           className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
         >
           Try Again
@@ -333,89 +335,19 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
   if (currentPage === 'subjects') {
     return <SubjectsPage teacherId={teacherId} onBack={handleBackToDashboard} />;
   }
-  
+
   if (currentPage === 'attendance') {
     return <AttendancePage teacherId={teacherId} onBack={handleBackToDashboard} />;
   }
-  
-  if (currentPage === 'grades') {
-    return <GradesPage teacherId={teacherId} onBack={handleBackToDashboard} />;
-  }
-  
-  if (currentPage === 'schedule') {
-    return <SchedulePage teacherId={teacherId} onBack={handleBackToDashboard} />;
-  }
-  
-  if (currentPage === 'resources') {
-    return <ResourcesPage teacherId={teacherId} onBack={handleBackToDashboard} />;
-  }
 
-  if (currentPage === 'reports') {
-    return (
-      <ComingSoonPage
-        title="Reports & Analytics"
-        description="Comprehensive reporting and analytics dashboard"
-        onBack={handleBackToDashboard}
-        icon={<TrendingUp className="w-6 h-6" />}
-        features={[
-          "Student Performance Analytics",
-          "Attendance Reports & Trends",
-          "Grade Distribution Charts",
-          "Class Progress Tracking",
-          "Export Reports (PDF/Excel)",
-          "Custom Report Builder",
-          "Comparative Analysis Tools",
-          "Real-time Dashboard Widgets"
-        ]}
-      />
-    );
-  }
 
-  if (currentPage === 'assignments') {
-    return (
-      <ComingSoonPage
-        title="Assignment Management"
-        description="Create, distribute, and manage student assignments"
-        onBack={handleBackToDashboard}
-        icon={<FileText className="w-6 h-6" />}
-        features={[
-          "Assignment Creation & Templates",
-          "Online Assignment Distribution",
-          "Submission Tracking & Management",
-          "Auto-grading for MCQ/Fill-in-blanks",
-          "Plagiarism Detection Integration",
-          "Deadline Management & Reminders",
-          "Feedback & Comments System",
-          "Grade Integration with Gradebook"
-        ]}
-      />
-    );
-  }
 
-  if (currentPage === 'students') {
-    return (
-      <ComingSoonPage
-        title="Student Management"
-        description="Comprehensive student profiles and management system"
-        onBack={handleBackToDashboard}
-        icon={<Users className="w-6 h-6" />}
-        features={[
-          "Complete Student Profiles & Information",
-          "Academic Performance Tracking",
-          "Attendance History & Analytics",
-          "Grade Records & Transcripts",
-          "Parent/Guardian Contact Details",
-          "Student Communication Portal",
-          "Disciplinary Records Management",
-          "Fee Payment Status & History",
-          "Course Enrollment Management",
-          "Student Photo Gallery & ID Cards",
-          "Scholarship & Awards Tracking",
-          "Placement & Career Guidance Records"
-        ]}
-      />
-    );
-  }
+
+
+
+
+
+
   // Default dashboard view
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
@@ -424,9 +356,71 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
         {getConnectionStatusText()} • Last updated: {new Date().toLocaleTimeString()}
       </div>
 
+      {/* Teacher Panel Header */}
+      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
+            {/* Left Side - Title */}
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <h1 className="text-xl font-bold text-white">Teacher Panel</h1>
+            </div>
+
+            {/* Right Side - Navigation Menu */}
+            <nav className="flex items-center gap-6">
+              <button
+                onClick={() => handleNavigation('attendance')}
+                className="text-blue-100 hover:text-white font-medium transition-colors flex items-center gap-2"
+              >
+                <ClipboardCheck className="w-4 h-4" />
+                Attendance
+              </button>
+              <a
+                href="https://project-alpha-roan.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-100 hover:text-white font-medium transition-colors flex items-center gap-2"
+              >
+                <Users className="w-4 h-4" />
+                Ecanteen
+              </a>
+              <a
+                href="https://paper-vista-five.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-100 hover:text-white font-medium transition-colors flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4" />
+                PaperVista
+              </a>
+              <a
+                href="https://auto-slide-x.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-100 hover:text-white font-medium transition-colors flex items-center gap-2"
+              >
+                <TrendingUp className="w-4 h-4" />
+                AutoSlideX
+              </a>
+              <a
+                href="https://eliberary.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-100 hover:text-white font-medium transition-colors flex items-center gap-2"
+              >
+                <BookOpen className="w-4 h-4" />
+                Elibrary
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto p-4 sm:p-6">
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
-          
+
           {/* Left Side - Profile & Dashboard */}
           <div className="xl:col-span-7 flex flex-col space-y-6 h-full">
             <ProfileHeader teacher={teacher} onLogout={onLogout} />
