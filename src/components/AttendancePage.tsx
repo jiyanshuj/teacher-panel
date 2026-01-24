@@ -48,7 +48,7 @@ const AttendancePage: React.FC<AttendancePageProps> = ({ teacherId, onBack }) =>
     const streamRef = useRef<MediaStream | null>(null);
     const recognitionIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    const API_BASE = 'https://65cabd00aa64.ngrok-free.app';
+    const API_BASE = 'https://131218d5991a.ngrok-free.app';
 
     useEffect(() => {
         checkBackendConnection();
@@ -508,8 +508,8 @@ const AttendancePage: React.FC<AttendancePageProps> = ({ teacherId, onBack }) =>
                                 resetAttendance();
                             }}
                             className={`p-6 rounded-xl border-2 transition-all ${attendanceMode === 'student'
-                                    ? 'border-blue-500 bg-blue-50'
-                                    : 'border-gray-200 bg-white hover:border-blue-300'
+                                ? 'border-blue-500 bg-blue-50'
+                                : 'border-gray-200 bg-white hover:border-blue-300'
                                 }`}
                         >
                             <div className="flex items-center justify-center gap-3 mb-2">
@@ -527,8 +527,8 @@ const AttendancePage: React.FC<AttendancePageProps> = ({ teacherId, onBack }) =>
                                 resetAttendance();
                             }}
                             className={`p-6 rounded-xl border-2 transition-all ${attendanceMode === 'self'
-                                    ? 'border-green-500 bg-green-50'
-                                    : 'border-gray-200 bg-white hover:border-green-300'
+                                ? 'border-green-500 bg-green-50'
+                                : 'border-gray-200 bg-white hover:border-green-300'
                                 }`}
                         >
                             <div className="flex items-center justify-center gap-3 mb-2">
@@ -765,8 +765,8 @@ const AttendancePage: React.FC<AttendancePageProps> = ({ teacherId, onBack }) =>
                                     <div className="flex justify-between items-center">
                                         <span className="text-blue-700">Backend Service:</span>
                                         <span className={`font-medium px-2 py-1 rounded text-xs ${backendStatus === 'connected' ? 'bg-green-100 text-green-800' :
-                                                backendStatus === 'disconnected' ? 'bg-red-100 text-red-800' :
-                                                    'bg-yellow-100 text-yellow-800'
+                                            backendStatus === 'disconnected' ? 'bg-red-100 text-red-800' :
+                                                'bg-yellow-100 text-yellow-800'
                                             }`}>
                                             {backendStatus === 'connected' ? 'Online' :
                                                 backendStatus === 'disconnected' ? 'Offline' : 'Checking'}
