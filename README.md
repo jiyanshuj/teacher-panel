@@ -263,7 +263,7 @@ AI-powered question paper and exam creation system:
 | ![Overview](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Overveiw.png) | ![Exam Type](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Exam-type.png) |
 
 | Paper Preview | Topic Management |
-|--------------|-----------------||
+|--------------|-----------------|
 | ![Print](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Print-paper.png) | ![Topic](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Topic.png) |
 
 **📌 Access PaperVista**: Check deployment for live link
