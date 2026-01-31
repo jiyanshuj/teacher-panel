@@ -48,7 +48,7 @@ const AttendancePage: React.FC<AttendancePageProps> = ({ teacherId, onBack }) =>
     const streamRef = useRef<MediaStream | null>(null);
     const recognitionIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    const API_BASE = 'https://131218d5991a.ngrok-free.app';
+    const API_BASE = 'https://a8066c847fbb.ngrok-free.app';
 
     useEffect(() => {
         checkBackendConnection();
