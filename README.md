@@ -260,7 +260,7 @@ AI-powered question paper and exam creation system:
 
 | Exam Type Selection | Overview | Paper Preview | Topic Management |
 |-------------------|----------|--------------|-----------------|
-| ![Exam Type](../PaperVista/images/Exam-type.png) | ![Overview](../PaperVista/images/Overveiw.png) | ![Print](../PaperVista/images/Print-paper.png) | ![Topic](../PaperVista/images/Topic.png) |
+| ![Exam Type](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Exam-type.png) | ![Overview](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Overveiw.png) | ![Print](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Print-paper.png) | ![Topic](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Topic.png) |
 
 **📌 Access PaperVista**: Check deployment for live link
 
@@ -269,7 +269,7 @@ Automated PowerPoint generation from text and PDFs:
 
 | Home Interface | New Slide | Final PPT | Preview | Download |
 |---------------|-----------|-----------|---------|----------|
-| ![Home](../AutoSlideX/images/Home.png) | ![New Slide](../AutoSlideX/images/New-slide.png) | ![Final PPT](../AutoSlideX/images/Final-ppt.png) | ![Preview](../AutoSlideX/images/Preveiw.png) | ![Download](../AutoSlideX/images/Download.png) |
+| ![Home](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Home.png) | ![New Slide](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/New-slide.png) | ![Final PPT](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Final-ppt.png) | ![Preview](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Preveiw.png) | ![Download](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Download.png) |
 
 **📌 Access AutoSlideX**: Check deployment for live link
 
