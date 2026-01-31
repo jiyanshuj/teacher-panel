@@ -258,18 +258,26 @@ The complete campus ecosystem with multiple modules:
 ### 📄 PaperVista - Smart Exam Paper Generator
 AI-powered question paper and exam creation system:
 
-| Exam Type Selection | Overview | Paper Preview | Topic Management |
-|-------------------|----------|--------------|-----------------|
-| ![Exam Type](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Exam-type.png) | ![Overview](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Overveiw.png) | ![Print](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Print-paper.png) | ![Topic](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Topic.png) |
+| Overview | Exam Type Selection |
+|----------|-------------------|
+| ![Overview](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Overveiw.png) | ![Exam Type](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Exam-type.png) |
+
+| Paper Preview | Topic Management |
+|--------------|-----------------||
+| ![Print](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Print-paper.png) | ![Topic](https://raw.githubusercontent.com/jiyanshuj/PaperVista/main/images/Topic.png) |
 
 **📌 Access PaperVista**: Check deployment for live link
 
 ### 🎪 AutoSlideX - Presentation Generator
 Automated PowerPoint generation from text and PDFs:
 
-| Home Interface | New Slide | Final PPT | Preview | Download |
-|---------------|-----------|-----------|---------|----------|
-| ![Home](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Home.png) | ![New Slide](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/New-slide.png) | ![Final PPT](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Final-ppt.png) | ![Preview](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Preveiw.png) | ![Download](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Download.png) |
+| Home Interface | New Slide |
+|----------------|----------|
+| ![Home](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Home.png) | ![New Slide](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/New-slide.png) |
+
+| Final PPT | Preview | Download |
+|-----------|---------|----------|
+| ![Final PPT](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Final-ppt.png) | ![Preview](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Preveiw.png) | ![Download](https://raw.githubusercontent.com/jiyanshuj/AutoSlideX/main/images/Download.png) |
 
 **📌 Access AutoSlideX**: Check deployment for live link
 
