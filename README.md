@@ -249,9 +249,35 @@ The panel uses Supabase for authentication. Teachers must:
 ### 🏫 NEURO CAMPUS - Campus Management System
 The complete campus ecosystem with multiple modules:
 
-| E-Canteen | E-Library | QR Code |
-|-----------|-----------|---------|
-| ![Canteen](../NEURO_CAMPUS/public/images/qrcode.jpg) | ![Library](../NEURO_CAMPUS/public/images/qrcode.jpg) | ![QR](../NEURO_CAMPUS/public/images/qrcode.jpg) |
+### 🍽️ E-Canteen System
+
+| Canteen Menu | Order Placement |
+|--------------|----------------|
+| <img src="https://github.com/user-attachments/assets/99acd1a4-3c26-498d-ad4b-b12929e78f82" width="400" alt="Canteen Menu" /> | <img src="https://github.com/user-attachments/assets/ab9147f4-1708-4fec-bd8f-31d4622c59e3" width="400" alt="Order Placement" /> |
+
+| Mobile View | Cart Management |
+|-------------|-----------------|
+| <img src="https://github.com/user-attachments/assets/08f81fc0-741c-4085-8fdb-46da179daa79" width="400" alt="Mobile Canteen" /> | <img src="https://github.com/user-attachments/assets/a518e1dc-ceb3-470d-8e1d-e079fb571f33" width="400" alt="Cart Management" /> |
+
+### 📚 E-Library System
+
+| Library Dashboard | Book Catalog |
+|------------------|--------------|
+| <img src="https://github.com/user-attachments/assets/bf4c10d7-0578-4ed3-97d2-731494665f0e" width="400" alt="Library Dashboard" /> | <img src="https://github.com/user-attachments/assets/b6a916ca-474f-4829-a65c-0cf91dc13ec0" width="400" alt="Book Catalog" /> |
+
+| Reading Interface | Book Details |
+|------------------|--------------|
+| <img src="https://github.com/user-attachments/assets/a4e893d0-5077-4b3f-a81e-6a0020cef449" width="400" alt="Reading Interface" /> | <img src="https://github.com/user-attachments/assets/3bc4f5ad-7d0b-4cc1-bfae-078ed219d206" width="400" alt="Book Details" /> |
+
+| Search & Filter | Library Stats |
+|-----------------|---------------|
+| <img src="https://github.com/user-attachments/assets/03a165cf-0a9a-4992-ab32-e7ae2209798e" width="400" alt="Search Filter" /> | <img src="https://github.com/user-attachments/assets/344c64f0-1c98-48a7-a315-20a7dffdc772" width="400" alt="Library Statistics" /> |
+
+### 💰 Accounts & Payments
+
+| Payment Dashboard | Transaction History |
+|------------------|-------------------|
+| <img src="https://github.com/user-attachments/assets/5afc3f5f-7f30-426c-8d5a-8051a7b6cc77" width="400" alt="Payment Dashboard" /> | <img src="https://github.com/user-attachments/assets/90616100-582b-4c8e-954d-522825355ee4" width="400" alt="Transaction History" /> |
 
 **📌 Access NEURO CAMPUS**: [https://neuro-campus-73w8.vercel.app/](https://neuro-campus-73w8.vercel.app/)
 
