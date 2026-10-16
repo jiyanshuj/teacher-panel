@@ -4,7 +4,8 @@ import {
   ClipboardCheck, 
   BookMarked,
   FileText,
-  Monitor
+  Monitor,
+  Brain
 } from 'lucide-react';
 import type { Stats } from '../types';
 
@@ -67,6 +68,15 @@ const QuickAccessPanel: React.FC<QuickAccessPanelProps> = ({ stats, onNavigate }
       title: "AutoSlideX", 
       desc: "Presentation maker", 
       count: "Create",
+      isExternal: true
+    },
+    { 
+      to: "https://kardivo-zeta.vercel.app/", 
+      bg: "teal", 
+      icon: Brain, 
+      title: "Kardivo", 
+      desc: "Explore Kardivo", 
+      count: "Open",
       isExternal: true
     },
   ];
