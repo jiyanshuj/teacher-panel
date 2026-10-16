@@ -5,7 +5,7 @@ import {
   BookMarked,
   FileText,
   Monitor,
-  Brain
+  IdCard
 } from 'lucide-react';
 import type { Stats } from '../types';
 
@@ -73,10 +73,10 @@ const QuickAccessPanel: React.FC<QuickAccessPanelProps> = ({ stats, onNavigate }
     { 
       to: "https://kardivo-zeta.vercel.app/", 
       bg: "teal", 
-      icon: Brain, 
-      title: "Kardivo", 
-      desc: "Explore Kardivo", 
-      count: "Open",
+      icon: IdCard, 
+      title: "Kardivo ID Cards", 
+      desc: "Generate student ID cards", 
+      count: "Create",
       isExternal: true
     },
   ];

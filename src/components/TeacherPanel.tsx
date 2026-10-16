@@ -10,7 +10,7 @@ import SubjectsPage from './SubjectsPage';
 import AttendancePage from './AttendancePage';
 import { mockTestConnection } from '../utils/mockData';
 import type { Teacher, TeacherSubject, Notice, Holiday, Activity, Stats } from '../types';
-import { TrendingUp, FileText, Users, GraduationCap, ClipboardCheck, BookOpen, Brain } from 'lucide-react';
+import { TrendingUp, FileText, Users, GraduationCap, ClipboardCheck, BookOpen, IdCard } from 'lucide-react';
 
 interface TeacherPanelProps {
   teacherId?: string;
@@ -419,8 +419,8 @@ const TeacherPanel: React.FC<TeacherPanelProps> = ({ teacherId = "T001", onLogou
                 rel="noopener noreferrer"
                 className="text-blue-100 hover:text-white font-medium transition-colors flex items-center gap-2"
               >
-                <Brain className="w-4 h-4" />
-                Kardivo
+                <IdCard className="w-4 h-4" />
+                Kardivo ID Cards
               </a>
             </nav>
           </div>
