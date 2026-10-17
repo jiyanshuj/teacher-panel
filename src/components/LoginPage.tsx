@@ -5,6 +5,9 @@ interface LoginPageProps {
   onLogin: (teacherId: string, teacherData: any) => void;
 }
 
+const DEMO_TEACHER_ID = 'T001';
+const DEMO_PASSWORD = 'svvv@123';
+
 const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   const [teacherId, setTeacherId] = useState('');
   const [password, setPassword] = useState('');
@@ -173,12 +176,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 <div className="flex justify-between items-center">
                   <span className="text-blue-700">Teacher ID:</span>
                   <code className="bg-white px-2 py-1 rounded text-blue-800 font-mono select-all cursor-pointer" 
-                        onClick={() => setTeacherId('T001')}>T001</code>
+                        onClick={() => setTeacherId(DEMO_TEACHER_ID)}>{DEMO_TEACHER_ID}</code>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-blue-700">Password:</span>
                   <code className="bg-white px-2 py-1 rounded text-blue-800 font-mono select-all cursor-pointer"
-                        onClick={() => setPassword('password123')}>svvv@123</code>
+                        onClick={() => setPassword(DEMO_PASSWORD)}>{DEMO_PASSWORD}</code>
                 </div>
                 <p className="text-blue-600 text-xs mt-2">
                   Click on credentials to auto-fill
